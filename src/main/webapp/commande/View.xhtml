@@ -7,37 +7,26 @@
 
     <ui:composition template="/template.xhtml">
         <ui:define name="title">
-            <h:outputText value="#{bundle.ViewCommandeTitle}"></h:outputText>
+            <h:outputText style="color: #b5e550 ; margin-left: 80vh; line-height: 7vh;  " value="Affichage de la commande" ></h:outputText>
         </ui:define>
         <ui:define name="body">
-            <h:panelGroup id="messagePanel" layout="block">
+            <h:panelGroup id="messagePanel" layout="block" style="margin-left: 90vh;">
                 <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
             </h:panelGroup>
             <h:form>
-                <h:panelGrid columns="2">
-                    <h:outputText value="#{bundle.ViewCommandeLabel_id}"/>
-                    <h:outputText value="#{commandeController.selected.id}" title="#{bundle.ViewCommandeTitle_id}"/>
-                    <h:outputText value="#{bundle.ViewCommandeLabel_date}"/>
-                    <h:outputText value="#{commandeController.selected.date}" title="#{bundle.ViewCommandeTitle_date}"/>
-                    <h:outputText value="#{bundle.ViewCommandeLabel_quantite}"/>
-                    <h:outputText value="#{commandeController.selected.quantite}" title="#{bundle.ViewCommandeTitle_quantite}"/>
-                    <h:outputText value="#{bundle.ViewCommandeLabel_produit}"/>
-                    <h:outputText value="#{commandeController.selected.produit}" title="#{bundle.ViewCommandeTitle_produit}"/>
-                    <h:outputText value="#{bundle.ViewCommandeLabel_user}"/>
-                    <h:outputText value="#{commandeController.selected.user}" title="#{bundle.ViewCommandeTitle_user}"/>
+                <h:panelGrid columns="2" style="margin-left: 90vh;">
+                    <h:outputText style="font-size: 18px;  " value="#{bundle.ViewCommandeLabel_id}"/>
+                    <h:outputText style="font-size: 18px;  " value="#{commandeController.selected.id}" title="#{bundle.ViewCommandeTitle_id}"/>
+                    <h:outputText style="font-size: 18px;  " value="#{bundle.ViewCommandeLabel_date}"/>
+                    <h:outputText style="font-size: 18px;  " value="#{commandeController.selected.date}" title="#{bundle.ViewCommandeTitle_date}"/>
+                    <h:outputText style="font-size: 18px;  " value="#{bundle.ViewCommandeLabel_quantite}"/>
+                    <h:outputText style="font-size: 18px;  " value="#{commandeController.selected.quantite}" title="#{bundle.ViewCommandeTitle_quantite}"/>
+                    <h:outputText style="font-size: 18px;  " value="#{bundle.ViewCommandeLabel_produit}"/>
+                    <h:outputText style="font-size: 18px;  " value="#{commandeController.selected.produit}" title="#{bundle.ViewCommandeTitle_produit}"/>
+                    <h:outputText style="font-size: 18px;  " value="#{bundle.ViewCommandeLabel_user}"/>
+                    <h:outputText style="font-size: 18px;  " value="#{commandeController.selected.user}" title="#{bundle.ViewCommandeTitle_user}"/>
                 </h:panelGrid>
-                <br />
-                <h:commandLink action="#{commandeController.destroyAndView}" value="#{bundle.ViewCommandeDestroyLink}"/>
-                <br />
-                <br />
-                <h:link outcome="Edit" value="#{bundle.ViewCommandeEditLink}"/>
-                <br />
-                <h:commandLink action="#{commandeController.prepareCreate}" value="#{bundle.ViewCommandeCreateLink}" />
-                <br />
-                <h:commandLink action="#{commandeController.prepareList}" value="#{bundle.ViewCommandeShowAllLink}"/>
-                <br />
-                <br />
-                <h:link outcome="/index" value="#{bundle.ViewCommandeIndexLink}"/>
+              
 
             </h:form>
         </ui:define>

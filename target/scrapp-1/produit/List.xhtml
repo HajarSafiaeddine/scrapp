@@ -5,23 +5,21 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
 
-    <ui:composition template="/template.xhtml">
-        <ui:define name="title">
-            <h:outputText value="#{bundle.ListProduitTitle}"></h:outputText>
+    <ui:composition template="/template.xhtml" >
+        <ui:define name="title" >
+            <h:outputText style="color: #b5e550 ; margin-left: 80vh; line-height: 7vh;  " value="La liste des produits"></h:outputText>
         </ui:define>
         <ui:define name="body">
-            <h:form styleClass="jsfcrud_list_form">
-                <h:panelGroup id="messagePanel" layout="block">
+            <h:form styleClass="jsfcrud_list_form" style="margin-left: 4vh; margin-top:10vh;" >
+                <h:panelGroup id="messagePanel" layout="block" style="margin-left: 80vh;">
                     <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
                 </h:panelGroup>
                 <h:outputText escape="false" value="#{bundle.ListProduitEmpty}" rendered="#{produitController.items.rowCount == 0}"/>
                 <h:panelGroup rendered="#{produitController.items.rowCount > 0}">
-                    <h:outputText value="#{produitController.pagination.pageFirstItem + 1}..#{produitController.pagination.pageLastItem + 1}/#{produitController.pagination.itemsCount}"/>&nbsp;
-                    <h:commandLink action="#{produitController.previous}" value="#{bundle.Previous} #{produitController.pagination.pageSize}" rendered="#{produitController.pagination.hasPreviousPage}"/>&nbsp;
-                    <h:commandLink action="#{produitController.next}" value="#{bundle.Next} #{produitController.pagination.pageSize}" rendered="#{produitController.pagination.hasNextPage}"/>&nbsp;
-                    <h:dataTable value="#{produitController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
-                        <h:column>
-                            <f:facet name="header">
+                   
+                    <h:dataTable value="#{produitController.items}" var="item" border="0" cellpadding="7" cellspacing="7" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" >
+                        <h:column >
+                            <f:facet name="header" >
                                 <h:outputText value="#{bundle.ListProduitTitle_id}"/>
                             </f:facet>
                             <h:outputText value="#{item.id}"/>
@@ -98,23 +96,22 @@
                             </f:facet>
                             <h:outputText value="#{item.category}"/>
                         </h:column>
+                        
                         <h:column>
                             <f:facet name="header">
-                                <h:outputText value="&nbsp;"/>
+                                <h:outputText value="Actions"/>
                             </f:facet>
-                            <h:commandLink action="#{produitController.prepareView}" value="#{bundle.ListProduitViewLink}"/>
+                           
+                           <h:commandLink style="font-size: 15px; font-weight: bold ; margin-left: 2vh; margin-right: 2vh;" action="#{produitController.prepareView}" value="#{bundle.ListProduitViewLink}"/>
                             <h:outputText value=" "/>
-                            <h:commandLink action="#{produitController.prepareEdit}" value="#{bundle.ListProduitEditLink}"/>
+                            <h:commandLink style="font-size: 15px; font-weight: bold ; margin-left: 2vh; margin-right: 2vh;" action="#{produitController.prepareEdit}" value="#{bundle.ListProduitEditLink}"/>
                             <h:outputText value=" "/>
-                            <h:commandLink action="#{produitController.destroy}" value="#{bundle.ListProduitDestroyLink}"/>
+                            <h:commandLink style="font-size: 15px; font-weight: bold; margin-left: 2vh; margin-right: 2vh;" action="#{produitController.destroy}" value="#{bundle.ListProduitDestroyLink}"/>
                         </h:column>
                     </h:dataTable>
                 </h:panelGroup>
                 <br />
-                <h:commandLink action="#{produitController.prepareCreate}" value="#{bundle.ListProduitCreateLink}"/>
-                <br />
-                <br />
-                <h:link outcome="/index" value="#{bundle.ListProduitIndexLink}"/>
+              
             </h:form>
         </ui:define>
     </ui:composition>

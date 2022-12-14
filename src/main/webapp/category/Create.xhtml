@@ -4,32 +4,32 @@
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
-
-    <ui:composition template="/template.xhtml">
-        <ui:define name="title">
-            <h:outputText value="#{bundle.CreateCategoryTitle}"></h:outputText>
+    <h:head>
+      
+    </h:head>
+    <h:body>
+ 
+          
+    <ui:composition template="/template.xhtml" >
+        
+        <ui:define name="title" >
+            <h:outputText style="color: #b5e550 ; margin-left: 85vh; line-height: 7vh;  " value="#{bundle.CreateCategoryTitle}"></h:outputText>
         </ui:define>
-        <ui:define name="body">
+        <ui:define name="body" >
             <h:panelGroup id="messagePanel" layout="block">
                 <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
             </h:panelGroup>
-            <h:form>
-                <h:panelGrid columns="2">
-                    <h:outputLabel value="#{bundle.CreateCategoryLabel_id}" for="id" />
-                    <h:inputText id="id" value="#{categoryController.selected.id}" title="#{bundle.CreateCategoryTitle_id}" />
-                    <h:outputLabel value="#{bundle.CreateCategoryLabel_name}" for="name" />
-                    <h:inputText id="name" value="#{categoryController.selected.name}" title="#{bundle.CreateCategoryTitle_name}" />
+            <h:form style="margin-left: 80vh; width: 20vh; margin-top: 10vh;">
+                <h:panelGrid columns="2" style="line-height: 10vh;">
+                    <h:outputLabel style="font-size: 18px; " value="#{bundle.CreateCategoryLabel_id}" for="id" />
+                    <h:inputText style="border-radius:5px;  font-size: 20px;margin-left: 4vh;" id="id" value="#{categoryController.selected.id}" title="#{bundle.CreateCategoryTitle_id}" />
+                    <h:outputLabel style="font-size: 18px;" value="#{bundle.CreateCategoryLabel_name}" for="name" />
+                    <h:inputText style="border-radius:5px; font-size: 20px; margin-left: 4vh;" id="name" value="#{categoryController.selected.name}" title="#{bundle.CreateCategoryTitle_name}" />
                 </h:panelGrid>
                 <br />
-                <h:commandLink action="#{categoryController.create}" value="#{bundle.CreateCategorySaveLink}" />
-                <br />
-                <br />
-                <h:commandLink action="#{categoryController.prepareList}" value="#{bundle.CreateCategoryShowAllLink}" immediate="true"/>
-                <br />
-                <br />
-                <h:link outcome="/index" value="#{bundle.CreateCategoryIndexLink}"/>
+                <h:commandButton style=" font-size: 15px; background-color: white; border: 2px solid #b5e550;margin-top:3vh; color:#b5e550;padding: 2px 8px;  border-radius: 10px;" action="#{categoryController.create}" value="#{bundle.CreateCategorySaveLink}" />   
             </h:form>
         </ui:define>
     </ui:composition>
-
+        </h:body>
 </html>

@@ -7,19 +7,17 @@
 
     <ui:composition template="/template.xhtml">
         <ui:define name="title">
-            <h:outputText value="#{bundle.ListCommandeTitle}"></h:outputText>
+            <h:outputText style="color: #b5e550 ; margin-left: 80vh; line-height: 7vh;  " value="La liste des commandes"></h:outputText>
         </ui:define>
         <ui:define name="body">
-            <h:form styleClass="jsfcrud_list_form">
-                <h:panelGroup id="messagePanel" layout="block">
+            <h:form styleClass="jsfcrud_list_form" style="margin-left: 73vh; margin-top:10vh;">
+                <h:panelGroup id="messagePanel" layout="block" style="margin-left: 90vh;">
                     <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
                 </h:panelGroup>
                 <h:outputText escape="false" value="#{bundle.ListCommandeEmpty}" rendered="#{commandeController.items.rowCount == 0}"/>
                 <h:panelGroup rendered="#{commandeController.items.rowCount > 0}">
-                    <h:outputText value="#{commandeController.pagination.pageFirstItem + 1}..#{commandeController.pagination.pageLastItem + 1}/#{commandeController.pagination.itemsCount}"/>&nbsp;
-                    <h:commandLink action="#{commandeController.previous}" value="#{bundle.Previous} #{commandeController.pagination.pageSize}" rendered="#{commandeController.pagination.hasPreviousPage}"/>&nbsp;
-                    <h:commandLink action="#{commandeController.next}" value="#{bundle.Next} #{commandeController.pagination.pageSize}" rendered="#{commandeController.pagination.hasNextPage}"/>&nbsp;
-                    <h:dataTable value="#{commandeController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                    
+                    <h:dataTable value="#{commandeController.items}" var="item" border="0" cellpadding="7" cellspacing="7" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
                         <h:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListCommandeTitle_id}"/>
@@ -52,21 +50,17 @@
                         </h:column>
                         <h:column>
                             <f:facet name="header">
-                                <h:outputText value="&nbsp;"/>
+                                <h:outputText value="Actions"/>
                             </f:facet>
-                            <h:commandLink action="#{commandeController.prepareView}" value="#{bundle.ListCommandeViewLink}"/>
+                            <h:commandLink style="font-size: 15px; font-weight: bold ; margin-left: 2vh; margin-right: 2vh;" action="#{commandeController.prepareView}" value="#{bundle.ListCommandeViewLink}"/>
                             <h:outputText value=" "/>
-                            <h:commandLink action="#{commandeController.prepareEdit}" value="#{bundle.ListCommandeEditLink}"/>
+                            <h:commandLink style="font-size: 15px; font-weight: bold ; margin-left: 2vh; margin-right: 2vh;" action="#{commandeController.prepareEdit}" value="#{bundle.ListCommandeEditLink}"/>
                             <h:outputText value=" "/>
-                            <h:commandLink action="#{commandeController.destroy}" value="#{bundle.ListCommandeDestroyLink}"/>
+                            <h:commandLink style="font-size: 15px; font-weight: bold ; margin-left: 2vh; margin-right: 2vh;" action="#{commandeController.destroy}" value="#{bundle.ListCommandeDestroyLink}"/>
                         </h:column>
                     </h:dataTable>
                 </h:panelGroup>
-                <br />
-                <h:commandLink action="#{commandeController.prepareCreate}" value="#{bundle.ListCommandeCreateLink}"/>
-                <br />
-                <br />
-                <h:link outcome="/index" value="#{bundle.ListCommandeIndexLink}"/>
+              
             </h:form>
         </ui:define>
     </ui:composition>

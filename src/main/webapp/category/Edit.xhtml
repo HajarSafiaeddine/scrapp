@@ -7,28 +7,22 @@
 
     <ui:composition template="/template.xhtml">
         <ui:define name="title">
-            <h:outputText value="#{bundle.EditCategoryTitle}"></h:outputText>
+            <h:outputText style="color: #b5e550 ; margin-left: 85vh; line-height: 7vh;  "  value="#{bundle.EditCategoryTitle}"></h:outputText>
         </ui:define>
         <ui:define name="body">
             <h:panelGroup id="messagePanel" layout="block">
                 <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
             </h:panelGroup>
-            <h:form>
-                <h:panelGrid columns="2">
-                    <h:outputLabel value="#{bundle.EditCategoryLabel_id}" for="id" />
-                    <h:inputText id="id" value="#{categoryController.selected.id}" title="#{bundle.EditCategoryTitle_id}" />
-                    <h:outputLabel value="#{bundle.EditCategoryLabel_name}" for="name" />
-                    <h:inputText id="name" value="#{categoryController.selected.name}" title="#{bundle.EditCategoryTitle_name}" />
+            <h:form style="margin-left: 80vh; width: 20vh; margin-top: 10vh;">
+                <h:panelGrid columns="2" >
+                    <h:outputLabel style="font-size: 18px; " value="#{bundle.EditCategoryLabel_id}" for="id" />
+                    <h:inputText style="border-radius:5px;"  id="id" value="#{categoryController.selected.id}" title="#{bundle.EditCategoryTitle_id}" />
+                    <h:outputLabel style="font-size: 18px; " value="#{bundle.EditCategoryLabel_name}" for="name" />
+                    <h:inputText style="border-radius:5px;"  id="name" value="#{categoryController.selected.name}" title="#{bundle.EditCategoryTitle_name}" />
                 </h:panelGrid>
-                <h:commandLink action="#{categoryController.update}" value="#{bundle.EditCategorySaveLink}"/>
-                <br />
-                <br />
-                <h:link outcome="View" value="#{bundle.EditCategoryViewLink}"/>
-                <br />
-                <h:commandLink action="#{categoryController.prepareList}" value="#{bundle.EditCategoryShowAllLink}" immediate="true"/>
-                <br />
-                <br />
-                <h:link outcome="/index" value="#{bundle.EditCategoryIndexLink}" />
+                <h:commandButton style=" font-size: 15px; background-color: white; border: 2px solid #b5e550;margin-top:3vh; color:#b5e550;padding: 2px 8px;  border-radius: 10px;" action="#{categoryController.update}" value="#{bundle.EditCategorySaveLink}"/>
+              
+                
             </h:form>
         </ui:define>
     </ui:composition>

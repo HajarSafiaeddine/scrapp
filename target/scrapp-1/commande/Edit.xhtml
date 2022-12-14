@@ -7,38 +7,32 @@
 
     <ui:composition template="/template.xhtml">
         <ui:define name="title">
-            <h:outputText value="#{bundle.EditCommandeTitle}"></h:outputText>
+            <h:outputText style="color: #b5e550 ; margin-left: 95vh; line-height: 7vh;  " value="#{bundle.EditCommandeTitle}"></h:outputText>
         </ui:define>
         <ui:define name="body">
             <h:panelGroup id="messagePanel" layout="block">
                 <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
             </h:panelGroup>
-            <h:form>
+            <h:form  style="margin-left: 80vh; width: 20vh; margin-top: 10vh;">
                 <h:panelGrid columns="2">
-                    <h:outputLabel value="#{bundle.EditCommandeLabel_id}" for="id" />
-                    <h:inputText id="id" value="#{commandeController.selected.id}" title="#{bundle.EditCommandeTitle_id}" />
-                    <h:outputLabel value="#{bundle.EditCommandeLabel_date}" for="date" />
-                    <h:inputText id="date" value="#{commandeController.selected.date}" title="#{bundle.EditCommandeTitle_date}" />
-                    <h:outputLabel value="#{bundle.EditCommandeLabel_quantite}" for="quantite" />
-                    <h:inputText id="quantite" value="#{commandeController.selected.quantite}" title="#{bundle.EditCommandeTitle_quantite}" />
-                    <h:outputLabel value="#{bundle.EditCommandeLabel_produit}" for="produit" />
-                    <h:selectOneMenu id="produit" value="#{commandeController.selected.produit}" title="#{bundle.EditCommandeTitle_produit}" >
+                    <h:outputLabel style="font-size: 18px; " value="#{bundle.EditCommandeLabel_id}" for="id" />
+                    <h:inputText style="border-radius:5px;  font-size: 20px;margin-left: 4vh;" id="id" value="#{commandeController.selected.id}" title="#{bundle.EditCommandeTitle_id}" />
+                    <h:outputLabel style="font-size: 18px; "  value="#{bundle.EditCommandeLabel_date}" for="date" />
+                    <h:inputText style="border-radius:5px;  font-size: 20px;margin-left: 4vh;"  id="date" value="#{commandeController.selected.date}" title="#{bundle.EditCommandeTitle_date}" />
+                    <h:outputLabel style="font-size: 18px; " value="#{bundle.EditCommandeLabel_quantite}" for="quantite" />
+                    <h:inputText style="border-radius:5px;  font-size: 20px;margin-left: 4vh;" id="quantite" value="#{commandeController.selected.quantite}" title="#{bundle.EditCommandeTitle_quantite}" />
+                    <h:outputLabel style="font-size: 18px; " value="#{bundle.EditCommandeLabel_produit}" for="produit" />
+                    <h:selectOneMenu style="border-radius:5px;  font-size: 18px;margin-left: 4vh;" id="produit" value="#{commandeController.selected.produit}" title="#{bundle.EditCommandeTitle_produit}" >
                         <f:selectItems value="#{produitController.itemsAvailableSelectOne}"/>
                     </h:selectOneMenu>
-                    <h:outputLabel value="#{bundle.EditCommandeLabel_user}" for="user" />
-                    <h:selectOneMenu id="user" value="#{commandeController.selected.user}" title="#{bundle.EditCommandeTitle_user}" >
+                    <h:outputLabel style="font-size: 18px; " value="#{bundle.EditCommandeLabel_user}" for="user" />
+                    <h:selectOneMenu style="border-radius:5px;  font-size: 18px;margin-left: 4vh;" id="user" value="#{commandeController.selected.user}" title="#{bundle.EditCommandeTitle_user}" >
                         <f:selectItems value="#{utilisateurController.itemsAvailableSelectOne}"/>
                     </h:selectOneMenu>
                 </h:panelGrid>
-                <h:commandLink action="#{commandeController.update}" value="#{bundle.EditCommandeSaveLink}"/>
-                <br />
-                <br />
-                <h:link outcome="View" value="#{bundle.EditCommandeViewLink}"/>
-                <br />
-                <h:commandLink action="#{commandeController.prepareList}" value="#{bundle.EditCommandeShowAllLink}" immediate="true"/>
-                <br />
-                <br />
-                <h:link outcome="/index" value="#{bundle.EditCommandeIndexLink}" />
+                <h:commandButton style=" font-size: 15px; background-color: white; border: 2px solid #b5e550;margin-top:3vh; color:#b5e550;padding: 2px 8px;  border-radius: 10px;" action="#{commandeController.update}" value="#{bundle.EditCommandeSaveLink}"/>
+                
+               
             </h:form>
         </ui:define>
     </ui:composition>

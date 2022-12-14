@@ -7,53 +7,42 @@
 
     <ui:composition template="/template.xhtml">
         <ui:define name="title">
-            <h:outputText value="#{bundle.ViewProduitTitle}"></h:outputText>
+            <h:outputText style="color: #b5e550 ; margin-left: 80vh; line-height: 7vh;  " value="Affichage du produit"></h:outputText>
         </ui:define>
         <ui:define name="body">
-            <h:panelGroup id="messagePanel" layout="block">
+            <h:panelGroup id="messagePanel" layout="block" style="margin-left: 90vh;">
                 <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
             </h:panelGroup>
             <h:form>
-                <h:panelGrid columns="2">
-                    <h:outputText value="#{bundle.ViewProduitLabel_id}"/>
-                    <h:outputText value="#{produitController.selected.id}" title="#{bundle.ViewProduitTitle_id}"/>
-                    <h:outputText value="#{bundle.ViewProduitLabel_site}"/>
-                    <h:outputText value="#{produitController.selected.site}" title="#{bundle.ViewProduitTitle_site}"/>
-                    <h:outputText value="#{bundle.ViewProduitLabel_description}"/>
-                    <h:outputText value="#{produitController.selected.description}" title="#{bundle.ViewProduitTitle_description}"/>
-                    <h:outputText value="#{bundle.ViewProduitLabel_free_shipping}"/>
-                    <h:outputText value="#{produitController.selected.free_shipping}" title="#{bundle.ViewProduitTitle_free_shipping}"/>
-                    <h:outputText value="#{bundle.ViewProduitLabel_image}"/>
-                    <h:outputText value="#{produitController.selected.image}" title="#{bundle.ViewProduitTitle_image}"/>
-                    <h:outputText value="#{bundle.ViewProduitLabel_name}"/>
-                    <h:outputText value="#{produitController.selected.name}" title="#{bundle.ViewProduitTitle_name}"/>
-                    <h:outputText value="#{bundle.ViewProduitLabel_old_price}"/>
-                    <h:outputText value="#{produitController.selected.old_price}" title="#{bundle.ViewProduitTitle_old_price}"/>
-                    <h:outputText value="#{bundle.ViewProduitLabel_price}"/>
-                    <h:outputText value="#{produitController.selected.price}" title="#{bundle.ViewProduitTitle_price}"/>
-                    <h:outputText value="#{bundle.ViewProduitLabel_rate}"/>
-                    <h:outputText value="#{produitController.selected.rate}" title="#{bundle.ViewProduitTitle_rate}"/>
-                    <h:outputText value="#{bundle.ViewProduitLabel_reduction}"/>
-                    <h:outputText value="#{produitController.selected.reduction}" title="#{bundle.ViewProduitTitle_reduction}"/>
-                    <h:outputText value="#{bundle.ViewProduitLabel_shipping_price}"/>
-                    <h:outputText value="#{produitController.selected.shipping_price}" title="#{bundle.ViewProduitTitle_shipping_price}"/>
-                    <h:outputText value="#{bundle.ViewProduitLabel_stock}"/>
-                    <h:outputText value="#{produitController.selected.stock}" title="#{bundle.ViewProduitTitle_stock}"/>
-                    <h:outputText value="#{bundle.ViewProduitLabel_category}"/>
-                    <h:outputText value="#{produitController.selected.category}" title="#{bundle.ViewProduitTitle_category}"/>
+                <h:panelGrid columns="2" style="margin-left: 90vh;">
+                    <h:outputText style="font-size: 18px;  " value="#{bundle.ViewProduitLabel_id}"/>
+                    <h:outputText style="font-size: 18px;  " value="#{produitController.selected.id}" title="#{bundle.ViewProduitTitle_id}"/>
+                    <h:outputText style="font-size: 18px;  " value="#{bundle.ViewProduitLabel_site}"/>
+                    <h:outputText style="font-size: 18px;  " value="#{produitController.selected.site}" title="#{bundle.ViewProduitTitle_site}"/>
+                    <h:outputText style="font-size: 18px;  " value="#{bundle.ViewProduitLabel_description}"/>
+                    <h:outputText style="font-size: 18px;  " value="#{produitController.selected.description}" title="#{bundle.ViewProduitTitle_description}"/>
+                    <h:outputText style="font-size: 18px;  " value="#{bundle.ViewProduitLabel_free_shipping}"/>
+                    <h:outputText style="font-size: 18px;  " value="#{produitController.selected.free_shipping}" title="#{bundle.ViewProduitTitle_free_shipping}"/>
+                    <h:outputText style="font-size: 18px;  " value="#{bundle.ViewProduitLabel_image}"/>
+                    <h:outputText style="font-size: 18px;  " value="#{produitController.selected.image}" title="#{bundle.ViewProduitTitle_image}"/>
+                    <h:outputText style="font-size: 18px;  " value="#{bundle.ViewProduitLabel_name}"/>
+                    <h:outputText style="font-size: 18px;  " value="#{produitController.selected.name}" title="#{bundle.ViewProduitTitle_name}"/>
+                    <h:outputText style="font-size: 18px;  " value="#{bundle.ViewProduitLabel_old_price}"/>
+                    <h:outputText style="font-size: 18px;  " value="#{produitController.selected.old_price}" title="#{bundle.ViewProduitTitle_old_price}"/>
+                    <h:outputText style="font-size: 18px;  " value="#{bundle.ViewProduitLabel_price}"/>
+                    <h:outputText style="font-size: 18px;  " value="#{produitController.selected.price}" title="#{bundle.ViewProduitTitle_price}"/>
+                    <h:outputText style="font-size: 18px; " value="#{bundle.ViewProduitLabel_rate}"/>
+                    <h:outputText style="font-size: 18px;  " value="#{produitController.selected.rate}" title="#{bundle.ViewProduitTitle_rate}"/>
+                    <h:outputText style="font-size: 18px;  " value="#{bundle.ViewProduitLabel_reduction}"/>
+                    <h:outputText style="font-size: 18px;  " value="#{produitController.selected.reduction}" title="#{bundle.ViewProduitTitle_reduction}"/>
+                    <h:outputText style="font-size: 18px;  " value="#{bundle.ViewProduitLabel_shipping_price}"/>
+                    <h:outputText style="font-size: 18px;  " value="#{produitController.selected.shipping_price}" title="#{bundle.ViewProduitTitle_shipping_price}"/>
+                    <h:outputText style="font-size: 18px;  " value="#{bundle.ViewProduitLabel_stock}"/>
+                    <h:outputText style="font-size: 18px;  " value="#{produitController.selected.stock}" title="#{bundle.ViewProduitTitle_stock}"/>
+                    <h:outputText style="font-size: 18px;  " value="#{bundle.ViewProduitLabel_category}"/>
+                    <h:outputText style="font-size: 18px;  " value="#{produitController.selected.category}" title="#{bundle.ViewProduitTitle_category}"/>
                 </h:panelGrid>
-                <br />
-                <h:commandLink action="#{produitController.destroyAndView}" value="#{bundle.ViewProduitDestroyLink}"/>
-                <br />
-                <br />
-                <h:link outcome="Edit" value="#{bundle.ViewProduitEditLink}"/>
-                <br />
-                <h:commandLink action="#{produitController.prepareCreate}" value="#{bundle.ViewProduitCreateLink}" />
-                <br />
-                <h:commandLink action="#{produitController.prepareList}" value="#{bundle.ViewProduitShowAllLink}"/>
-                <br />
-                <br />
-                <h:link outcome="/index" value="#{bundle.ViewProduitIndexLink}"/>
+              
 
             </h:form>
         </ui:define>
