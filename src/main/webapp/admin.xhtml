@@ -60,9 +60,11 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit t
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Opérations:</h6>
-                        <a class="collapse-item" href="produit/Create.xhtml">Ajouter</a>
-                        
-                         <a class="collapse-item" href="produit/List.xhtml">Afficher</a>
+                        <h:form>
+                        <h:commandButton  value="Ajouter" action="produit/Create.xhtml?faces-redirect=true" />
+                       
+                         <h:commandButton  value="Afficher" action="produit/List.xhtml?faces-redirect=true" />
+                        </h:form>
                     </div>
                 </div>
             </li>
@@ -76,9 +78,11 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit t
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Opérations:</h6>
-                        <a class="collapse-item" href="category/Create.xhtml">Ajouter</a>
-                        
-                         <a class="collapse-item" href="category/List.xhtml">Afficher</a>
+                        <h:form>
+                        <h:commandButton  value="Ajouter" action="category/Create.xhtml?faces-redirect=true" />
+                       
+                         <h:commandButton  value="Afficher" action="category/List.xhtml?faces-redirect=true" />
+                        </h:form>
                     </div>
                 </div>
             </li>
@@ -93,9 +97,11 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit t
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Opérations:</h6>
-                        <a class="collapse-item" href="commande/Create.xhtml">Ajouter</a>
-                        
-                         <a class="collapse-item" href="commande/List.xhtml">Afficher</a>
+                        <h:form>
+                        <h:commandButton  value="Ajouter" action="commande/Create.xhtml?faces-redirect=true" />
+                       
+                         <h:commandButton  value="Afficher" action="commande/List.xhtml?faces-redirect=true" />
+                        </h:form>
                     </div>
                 </div>
             </li>
@@ -109,9 +115,11 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit t
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Opérations:</h6>
-                        <a class="collapse-item" href="utilisateur/Create.xhtml">Ajouter</a>
+                        <h:form>
+                        <h:commandButton  value="Ajouter" action="utilisateur/Create.xhtml?faces-redirect=true" />
                        
-                         <a class="collapse-item" href="utilisateur/List.xhtml">Afficher</a>
+                         <h:commandButton  value="Afficher" action="utilisateur/List.xhtml?faces-redirect=true" />
+                         </h:form>
                     </div>
                 </div>
             </li>

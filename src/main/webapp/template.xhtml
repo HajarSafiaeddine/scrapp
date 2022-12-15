@@ -7,16 +7,24 @@
     <h:head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <title><ui:insert name="title">Default Title</ui:insert></title>
-        <h:outputStylesheet library="css" name="jsfcrud.css"/>
+        
+        <h:outputStylesheet library="css" name="sb-admin-2.css"/>
+         <h:outputStylesheet library="css" name="sb-admin-2.min.css"/>
+         <h:outputScript  name="vendor/jquery/jquery.min.js" target="body" />
+         <h:outputScript  name="vendor/bootstrap/js/bootstrap.bundle.min.js" target="body" />
+         <h:outputScript  name="vendor/jquery-easing/jquery.easing.min.js" target="body" />
+         <h:outputScript  name="js/sb-admin-2.min.js" target="body" />
+          
+          
     </h:head>
-
+     
     <h:body>
-        <h1>
-            <ui:insert name="title">Default Title</ui:insert>
-        </h1>
-        <p>
-            <ui:insert name="body">Default Body</ui:insert>
+        
+        <p >
+           
+            <ui:insert name="body" >Default Body</ui:insert>
         </p>
+        
     </h:body>
 
 </html>
