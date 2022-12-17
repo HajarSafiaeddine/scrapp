@@ -112,16 +112,16 @@
                                 <a href="" class="dropdown-item">Baby's Dresses</a>
                             </div>
                         </div>-->
-              <h:link outcome="/category/List" value="Show All Category Items"/>
-        <br />
-        <h:link outcome="/commande/List" value="Show All Commande Items"/>
-        <br />
-        <h:link outcome="/produit/List" value="Show All Produit Items"/>
-        <br />
-        <h:link outcome="/utilisateur/List" value="Show All Utilisateur Items"/>
 
- 
 
+<ui:repeat value="#{categoryController.items}" var="item">
+
+<!--                        <a href="" class="nav-item nav-link">#{item.name}</a>-->
+                       
+ <h:form>
+     <h:commandLink action="#{produitController.redircat()}" value="#{item.name}" style="text-decoration:none;color:grey;"/>
+                         </h:form>                       
+            </ui:repeat>
                     </div>
                 </nav>
             </div>
@@ -268,7 +268,46 @@
             <h2 class="section-title px-5"><span class="px-2">Just Arrived</span></h2>
         </div>
         <div class="row px-xl-5 pb-3">
-  
+            <ui:repeat value="#{produitController.items}" var="item">
+            <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
+                <div class="card product-item border-0 mb-4">
+                    <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
+                        <h:graphicImage class="img-fluid w-100" p:src="#{item.image}" alt=""/>
+                    </div>
+                    <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
+                        <h6 class="text-truncate mb-3">#{item.name}</h6>
+                        
+                        <p >#{item.description}</p>
+                        <div class="d-flex justify-content-center" style="text-decoration:line-through;">
+                            <h6>Ancien Prix: #{item.old_price} DH</h6><h6 class="text-muted ml-2"><del></del></h6>
+                        </div>
+                        <div class="d-flex justify-content-center">
+                            <h6>Prix actuel: #{item.price} DH</h6><h6 class="text-muted ml-2"><del></del></h6>
+                        </div>
+                        <div class="d-flex justify-content-center">
+                            <h6>Quantité au stock: #{item.stock}</h6><h6 class="text-muted ml-2"><del></del></h6>
+                        </div>
+                        
+                    </div>
+                    
+                    <div class="card-footer d-flex justify-content-between bg-light border">
+                        <h:form>
+                            
+                              <h:commandButton action="#{produitController.redirprod()}" value="bean" />
+    
+                             <!--<h:commandButton  action= > <i class="fas fa-eye text-primary mr-1"></i>View </h:commandButton>-->
+                        </h:form>
+                      
+                        
+                        <a href="#{item.site}" class="btn btn-sm text-dark p-0"><i class="fas fa-globe text-primary mr-1"></i>Visite</a>
+
+                        <a href="" class="btn btn-sm text-dark p-0"><i class="fas fa-shopping-cart text-primary mr-1"></i>Add To Cart</a>
+                    </div>
+                </div>
+            </div>
+
+ 
+    </ui:repeat>
         </div>
     </div>
    
@@ -333,67 +372,17 @@
             </div>
         </div>
     </div>
+  <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+
+    <!-- Contact Javascript File -->
+    <script src="mail/jqBootstrapValidation.min.js"></script>
+    <script src="mail/contact.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
     </h:body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

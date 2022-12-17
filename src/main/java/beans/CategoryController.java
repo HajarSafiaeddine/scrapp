@@ -3,8 +3,11 @@ package beans;
 import entities.Category;
 import beans.util.JsfUtil;
 import beans.util.PaginationHelper;
+import entities.Produit;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 import javax.ejb.EJB;
 import javax.inject.Named;
@@ -17,6 +20,7 @@ import javax.faces.convert.FacesConverter;
 import javax.faces.model.DataModel;
 import javax.faces.model.ListDataModel;
 import javax.faces.model.SelectItem;
+import javax.persistence.Query;
 
 @ManagedBean
 public class CategoryController implements Serializable {
@@ -27,7 +31,7 @@ public class CategoryController implements Serializable {
     private beans.CategoryFacade ejbFacade;
     private PaginationHelper pagination;
     private int selectedItemIndex;
-
+   
     public CategoryController() {
     }
 
@@ -60,7 +64,8 @@ public class CategoryController implements Serializable {
         }
         return pagination;
     }
-
+   
+      
     public String prepareList() {
         recreateModel();
         return "List";
@@ -71,6 +76,7 @@ public class CategoryController implements Serializable {
         selectedItemIndex = pagination.getPageFirstItem() + getItems().getRowIndex();
         return "View";
     }
+   
 
     public String prepareCreate() {
         current = new Category();

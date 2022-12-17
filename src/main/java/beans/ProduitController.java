@@ -3,8 +3,11 @@ package beans;
 import entities.Produit;
 import beans.util.JsfUtil;
 import beans.util.PaginationHelper;
+import entities.Category;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 import javax.ejb.EJB;
 import javax.inject.Named;
@@ -17,19 +20,37 @@ import javax.faces.convert.FacesConverter;
 import javax.faces.model.DataModel;
 import javax.faces.model.ListDataModel;
 import javax.faces.model.SelectItem;
+import javax.persistence.EntityManager;
+import javax.persistence.Query;
 
 @ManagedBean
 public class ProduitController implements Serializable {
 
     private Produit current;
     private DataModel items = null;
+    private EntityManager em;
+     List<Produit> values = new ArrayList<>();
     @EJB
     private beans.ProduitFacade ejbFacade;
     private PaginationHelper pagination;
     private int selectedItemIndex;
 
     public ProduitController() {
+        
     }
+    public String redircat() {
+       
+        System.out.println("test");
+      
+        return "category";
+    }
+  public String redirprod() {
+       current = (Produit) getItems().getRowData();
+        selectedItemIndex = pagination.getPageFirstItem() + getItems().getRowIndex();
+        return "productDetails";
+    }
+  
+   
 
     public Produit getSelected() {
         if (current == null) {
@@ -38,14 +59,15 @@ public class ProduitController implements Serializable {
         }
         return current;
     }
-
+      
+    
     private ProduitFacade getFacade() {
         return ejbFacade;
     }
-
+  
     public PaginationHelper getPagination() {
         if (pagination == null) {
-            pagination = new PaginationHelper(10) {
+            pagination = new PaginationHelper(20) {
 
                 @Override
                 public int getItemsCount() {

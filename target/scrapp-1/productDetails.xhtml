@@ -166,7 +166,7 @@
                 <div id="product-carousel" class="carousel slide" data-ride="carousel">
                     <div class="carousel-inner border">
                         <div class="carousel-item active">
-                            
+                            <h:graphicImage class="w-100 h-100" p:src="#{produitController.selected.image}" alt="Image"/>
                         </div>
 
                     </div>
@@ -180,17 +180,17 @@
             </div>
 
             <div class="col-lg-7 pb-5">
-                <h3 class="font-weight-semi-bold">test</h3>
+                <h3 class="font-weight-semi-bold">#{produitController.selected.name}</h3>
                 <div class="d-flex mb-3">
                     <div class="text-primary mr-2">
-
+<c:forEach begin="1" end="#{produitController.selected.rate}">
                                   <small class="fas fa-star"></small>
 
-                               
+          </c:forEach>                        
                     </div>
                 </div>
-                
-                <p class="mb-4">test</p>
+                <h3 class="font-weight-semi-bold mb-4">#{produitController.selected.price}</h3>
+                <p class="mb-4">#{produitController.selected.description}</p>
 <!--                <div class="d-flex mb-3">
                     <p class="text-dark font-weight-medium mb-0 mr-3">Sizes:</p>
                     <form>
@@ -263,9 +263,9 @@
                     <p class="text-dark font-weight-medium mb-0 mr-2">Officiel source :</p>
                     <div class="d-inline-flex">
                         <br></br>
-                        <p>test</p>
-                        <!--<a href="#{product.selectedProduct.source}" class="btn btn-sm text-dark p-0"><i class="fas fa-globe text-primary mr-1"></i>Visite</a>-->
                         
+                        <!--<a href="#{product.selectedProduct.source}" class="btn btn-sm text-dark p-0"><i class="fas fa-globe text-primary mr-1"></i>Visite</a>-->
+                        <a href="#{produitController.selected.site}" class="btn btn-sm text-dark p-0"><i class="fas fa-globe text-primary mr-1"></i>Visite</a>
 
 <!--                        <a class="text-dark px-2" href="">
                             <i class="fab fa-facebook-f"></i>
@@ -293,7 +293,7 @@
                 <div class="tab-content">
                     <div class="tab-pane fade show active" id="tab-pane-1">
                         <h4 class="mb-3">Product Description</h4>
-                        <p>test</p>
+                        <p>#{produitController.selected.description}</p>
                     </div>
 
                 </div>
@@ -455,5 +455,17 @@
             </div>
         </div>
     </div>
+      <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+
+    <!-- Contact Javascript File -->
+    <script src="mail/jqBootstrapValidation.min.js"></script>
+    <script src="mail/contact.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
     </h:body>
 </html>

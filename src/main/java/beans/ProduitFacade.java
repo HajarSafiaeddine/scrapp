@@ -5,9 +5,13 @@
 package beans;
 
 import entities.Produit;
+import java.util.ArrayList;
+import java.util.List;
+import javax.annotation.PostConstruct;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
 /**
  *
@@ -18,14 +22,21 @@ public class ProduitFacade extends AbstractFacade<Produit> {
 
     @PersistenceContext(unitName = "my_persistence_unit")
     private EntityManager em;
+   
+    
+     
+
 
     @Override
     protected EntityManager getEntityManager() {
         return em;
     }
+    
+  
 
     public ProduitFacade() {
         super(Produit.class);
     }
+ 
     
 }
