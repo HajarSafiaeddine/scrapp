@@ -119,8 +119,11 @@
 <!--                        <a href="" class="nav-item nav-link">#{item.name}</a>-->
                        
  <h:form>
-     <h:commandLink action="#{produitController.redircat()}" value="#{item.name}" style="text-decoration:none;color:grey;"/>
-                         </h:form>                       
+     <h:commandLink action="#{produitController.viewProduct(item.id)}" value="#{item.name}" style="text-decoration:none;color:grey;">
+         <f:param name="category" value="#{item.id}"/>
+     </h:commandLink>
+                         
+ </h:form>                       
             </ui:repeat>
                     </div>
                 </nav>
@@ -148,7 +151,11 @@
                             <a href="contact.html" class="nav-item nav-link">Contact</a>
                         </div>-->
                         <div class="navbar-nav ml-auto py-0">
-                            <a href="" class="nav-item nav-link">Login</a>
+                            <h:form>
+                            <h:commandButton value="login" action="login.xhtml?faces-redirect=true"/>
+                            <h:commandButton value="tester" action="#{produitController.viewProduct(1)}"/>
+                            </h:form>
+                            
                             <a href="" class="nav-item nav-link">Register</a>
                         </div>
                     </div>

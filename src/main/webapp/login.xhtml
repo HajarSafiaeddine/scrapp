@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://xmlns.jcp.org/jsf/passthrough">
+    <h:head>
+        <meta charset="utf-8" />
+      <title>Scrappa me</title>
+      <meta name="description" content="app, web app, responsive, admin dashboard, admin, flat, flat ui, ui kit, off screen nav" />
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+      <link rel="stylesheet" href="Web Application _ todo_files/app.v2.css" type="text/css"/>
+      <link rel="stylesheet" href="Web Application _ todo_files/font.css" type="text/css"/>
+      <!--[if lt IE 9]> <script src="js/ie/respond.min.js" cache="false"></script> <script src="js/ie/html5.js" cache="false"></script> <script src="js/ie/fix.js" cache="false"></script> <![endif]-->
+    </h:head>
+    <h:body>
+       <body>
+      <section id="content" class="m-t-lg wrapper-md animated fadeInUp">
+         <a class="nav-brand" href="index.html">Welcome to our application</a> 
+         <div class="row m-n">
+            <div class="col-md-4 col-md-offset-4 m-t-lg">
+               <section class="panel">
+                  <header class="panel-heading text-center"> Sign in </header>
+                  <h:form  class="panel-body">
+                     <div class="form-group"> 
+                         <h:outputLabel class="control-label">Email</h:outputLabel> 
+                         <h:inputText p:type="email" p:placeholder="test@example.com" class="form-control" value="#{utilisateurController.selected.email}"/> 
+                     </div>
+                     <div class="form-group"> 
+                         <h:outputLabel class="control-label">Password</h:outputLabel> 
+                         <h:inputSecret p:type="password" id="inputPassword" p:placeholder="Password" class="form-control" value="#{utilisateurController.selected.password}"/> 
+                     </div>
+                      <h:commandButton class="btn btn-info" value="Sign in" action="#{utilisateurController.login}"/>
+                    
+                     
+                    
+                     <p class="text-muted text-center"><small>Do not have an account?</small></p>
+                     <a href="signup.html" class="btn btn-white btn-block">Create an account</a> 
+                  </h:form>
+               </section>
+            </div>
+         </div>
+      </section> 
+   </body>
+    </h:body>
+</html>

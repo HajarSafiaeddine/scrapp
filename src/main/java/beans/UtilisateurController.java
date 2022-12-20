@@ -3,14 +3,18 @@ package beans;
 import entities.Utilisateur;
 import beans.util.JsfUtil;
 import beans.util.PaginationHelper;
-
+import entities.Produit;
+import java.io.IOException;
+import java.util.List;
 import java.io.Serializable;
+import static java.util.Collections.list;
 import java.util.ResourceBundle;
 import javax.ejb.EJB;
 import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
 import javax.faces.bean.ManagedBean;
 import javax.faces.component.UIComponent;
+import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
 import javax.faces.convert.FacesConverter;
@@ -30,7 +34,30 @@ public class UtilisateurController implements Serializable {
 
     public UtilisateurController() {
     }
-
+    public Boolean verify(String email,String password) {
+        Boolean test = false;
+        
+       List<Utilisateur> mylist = ejbFacade.findAll();
+        for (Utilisateur utilisateur : mylist) {
+            if (email == null ? utilisateur.getEmail() == null : email.equals(utilisateur.getEmail())) {
+                if (password == null ? utilisateur.getPassword() == null : password.equals(utilisateur.getPassword())) {
+//                    System.out.println("profile verifie");
+                    test = true;
+                    if("admin".equals(utilisateur.getRole())){
+                        goToAdmin();
+                    }else{
+                        goToUser();
+                    }
+                    return test;
+                }
+                return test;
+            }
+            
+        }
+        return test;
+    }
+  
+    
     public Utilisateur getSelected() {
         if (current == null) {
             current = new Utilisateur();
@@ -229,6 +256,38 @@ public class UtilisateurController implements Serializable {
             }
         }
 
+    }
+    public void goToAdmin(){
+        ExternalContext ec = FacesContext.getCurrentInstance().getExternalContext();
+        try {
+            ec.redirect(ec.getRequestContextPath()+"/faces/admin.xhtml");
+        } catch (IOException e) {
+        }
+        
+    }
+     public void goToUnkown(){
+        ExternalContext ec = FacesContext.getCurrentInstance().getExternalContext();
+        try {
+            ec.redirect(ec.getRequestContextPath()+"/faces/index.xhtml");
+        } catch (IOException e) {
+        }
+        
+    }
+        public void goToUser(){
+             ExternalContext ec = FacesContext.getCurrentInstance().getExternalContext();
+        try {
+            ec.redirect(ec.getRequestContextPath()+"/faces/home.xhtml");
+        } catch (IOException e) {
+        }
+        
+    }
+    public void login(){
+        Boolean tester = verify(current.getEmail(),current.getPassword());
+       
+        if(!tester){
+           
+          goToUnkown();
+        }
     }
 
 }

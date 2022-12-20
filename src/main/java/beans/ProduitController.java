@@ -22,6 +22,8 @@ import javax.faces.model.ListDataModel;
 import javax.faces.model.SelectItem;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
+import java.util.List;
+import java.util.Map;
 
 @ManagedBean
 public class ProduitController implements Serializable {
@@ -38,9 +40,25 @@ public class ProduitController implements Serializable {
     public ProduitController() {
         
     }
+    public String viewProduct(Long id){
+        
+        List<Produit> prods = ejbFacade.findAll();
+        
+        for (Produit prod : prods) {
+            if(prod.getCategory().getId() == id){
+             System.out.println(prod.getCategory());
+             
+            }
+            
+            
+   
+    }
+        return "category";
+    }
     public String redircat() {
-       
-        System.out.println("test");
+        Map<String,String> params = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap();
+        String id = params.get("category");
+        System.out.println("Category id = "+id);
       
         return "category";
     }
