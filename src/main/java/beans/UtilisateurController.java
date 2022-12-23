@@ -27,8 +27,13 @@ public class UtilisateurController implements Serializable {
 
     private Utilisateur current;
     private DataModel items = null;
+    
     @EJB
     private beans.UtilisateurFacade ejbFacade;
+
+   
+    
+   
     private PaginationHelper pagination;
     private int selectedItemIndex;
 
@@ -43,6 +48,8 @@ public class UtilisateurController implements Serializable {
                 if (password == null ? utilisateur.getPassword() == null : password.equals(utilisateur.getPassword())) {
 //                    System.out.println("profile verifie");
                     test = true;
+                    
+                    
                     if("admin".equals(utilisateur.getRole())){
                         goToAdmin();
                     }else{

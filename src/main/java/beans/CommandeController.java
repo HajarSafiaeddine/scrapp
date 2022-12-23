@@ -3,9 +3,18 @@ package beans;
 import entities.Commande;
 import beans.util.JsfUtil;
 import beans.util.PaginationHelper;
+import static com.sun.org.apache.xalan.internal.lib.ExsltDatetime.date;
+import entities.Produit;
+import entities.Utilisateur;
 
 import java.io.Serializable;
+import java.security.Timestamp;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
 import java.util.ResourceBundle;
+import static javafx.util.Duration.millis;
 import javax.ejb.EJB;
 import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
@@ -21,12 +30,46 @@ import javax.faces.model.SelectItem;
 @ManagedBean
 public class CommandeController implements Serializable {
 
+   
+
     private Commande current;
     private DataModel items = null;
     @EJB
     private beans.CommandeFacade ejbFacade;
+    
     private PaginationHelper pagination;
     private int selectedItemIndex;
+    
+    List<Commande> c = new ArrayList<Commande>();
+
+    public List<Commande> getC() {
+        return c;
+    }
+
+    public void setC(List<Commande> c) {
+        this.c = c;
+    }
+    
+
+    
+    private Produit currentproduit;
+    private Utilisateur currentuser;
+
+    public Utilisateur getCurrentuser() {
+        return currentuser;
+    }
+
+    public void setCurrentuser(Utilisateur currentuser) {
+        this.currentuser = currentuser;
+    }
+
+    public Produit getCurrentproduit() {
+        return currentproduit;
+    }
+
+    public void setCurrentproduit(Produit currentproduit) {
+        this.currentproduit = currentproduit;
+    }
 
     public CommandeController() {
     }
@@ -38,11 +81,22 @@ public class CommandeController implements Serializable {
         }
         return current;
     }
+  
 
     private CommandeFacade getFacade() {
         return ejbFacade;
     }
-
+ public String commander(Produit currentproduit){
+     String timeStamp = new SimpleDateFormat("dd/MM/YYYY").format(new java.util.Date());
+       if(current==null){
+           current = new Commande();
+            current.setProduit(currentproduit);  
+            current.setDate(timeStamp);    
+       }
+          
+       return "cart";
+   }
+     
     public PaginationHelper getPagination() {
         if (pagination == null) {
             pagination = new PaginationHelper(10) {
@@ -77,6 +131,7 @@ public class CommandeController implements Serializable {
         selectedItemIndex = -1;
         return "Create";
     }
+    
 
     public String create() {
         try {
@@ -88,6 +143,9 @@ public class CommandeController implements Serializable {
             return null;
         }
     }
+    
+   
+    
 
     public String prepareEdit() {
         current = (Commande) getItems().getRowData();

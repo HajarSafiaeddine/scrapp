@@ -4,6 +4,7 @@ import entities.Produit;
 import beans.util.JsfUtil;
 import beans.util.PaginationHelper;
 import entities.Category;
+import entities.Commande;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -31,11 +32,21 @@ public class ProduitController implements Serializable {
     private Produit current;
     private DataModel items = null;
     private EntityManager em;
-     List<Produit> values = new ArrayList<>();
+     List<Produit> values = new ArrayList<Produit>();
+     List<Produit> mesproduits = new ArrayList<Produit>();
     @EJB
     private beans.ProduitFacade ejbFacade;
     private PaginationHelper pagination;
     private int selectedItemIndex;
+
+    public List<Produit> getMesproduits() {
+        return mesproduits;
+    }
+    
+    
+
+
+    
 
     public ProduitController() {
         
@@ -44,17 +55,25 @@ public class ProduitController implements Serializable {
         
         List<Produit> prods = ejbFacade.findAll();
         
+        
         for (Produit prod : prods) {
             if(prod.getCategory().getId() == id){
-             System.out.println(prod.getCategory());
+             this.mesproduits.add(prod);
+                
              
             }
-            
-            
+        
    
     }
+         for (Produit mprod : mesproduits) {
+             System.out.println(mprod.getCategory().getId());
+            
+        }
         return "category";
     }
+       
+ 
+ 
     public String redircat() {
         Map<String,String> params = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap();
         String id = params.get("category");
@@ -67,6 +86,7 @@ public class ProduitController implements Serializable {
         selectedItemIndex = pagination.getPageFirstItem() + getItems().getRowIndex();
         return "productDetails";
     }
+   
   
    
 
@@ -227,10 +247,7 @@ public class ProduitController implements Serializable {
         return JsfUtil.getSelectItems(ejbFacade.findAll(), true);
     }
 
-    public Produit getProduit(java.lang.Long id) {
-        return ejbFacade.find(id);
-    }
-
+  
     @FacesConverter(forClass = Produit.class)
     public static class ProduitControllerConverter implements Converter {
 
