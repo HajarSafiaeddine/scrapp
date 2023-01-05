@@ -26,7 +26,7 @@ public class Utilisateur implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    public Long id;
     private String Adresse;
     private String Email;
     private String Nom;
@@ -34,6 +34,7 @@ public class Utilisateur implements Serializable {
     private String Prenom;
     private String Role;
     private String Telephone;
+    
     
      @OneToMany(mappedBy="user")
      private Collection<Commande> commandes;

@@ -21,6 +21,8 @@ import javax.faces.convert.FacesConverter;
 import javax.faces.model.DataModel;
 import javax.faces.model.ListDataModel;
 import javax.faces.model.SelectItem;
+import beans.commande;
+import java.util.Set;
 
 @ManagedBean
 public class UtilisateurController implements Serializable {
@@ -30,6 +32,18 @@ public class UtilisateurController implements Serializable {
     
     @EJB
     private beans.UtilisateurFacade ejbFacade;
+
+    public Utilisateur getCurrent() {
+        return current;
+    }
+
+    public void setCurrent(Utilisateur current) {
+        this.current = current;
+    }
+    
+   
+
+  
 
    
     
@@ -41,6 +55,7 @@ public class UtilisateurController implements Serializable {
     }
     public Boolean verify(String email,String password) {
         Boolean test = false;
+       
         
        List<Utilisateur> mylist = ejbFacade.findAll();
         for (Utilisateur utilisateur : mylist) {
@@ -49,18 +64,27 @@ public class UtilisateurController implements Serializable {
 //                    System.out.println("profile verifie");
                     test = true;
                     
-                    
                     if("admin".equals(utilisateur.getRole())){
+                        
                         goToAdmin();
-                    }else{
+                        commande.setId(utilisateur.getId());
+                        
+                        
+                    }else if ("user".equals(utilisateur.getRole())) {
                         goToUser();
+                        commande.setId(utilisateur.getId());
+                        current.setNom("khadija");
+                        
                     }
+                    
+                    
                     return test;
                 }
                 return test;
             }
             
         }
+        
         return test;
     }
   
@@ -283,7 +307,7 @@ public class UtilisateurController implements Serializable {
         public void goToUser(){
              ExternalContext ec = FacesContext.getCurrentInstance().getExternalContext();
         try {
-            ec.redirect(ec.getRequestContextPath()+"/faces/home.xhtml");
+            ec.redirect(ec.getRequestContextPath()+"/faces/cart.xhtml");
         } catch (IOException e) {
         }
         

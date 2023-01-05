@@ -68,27 +68,9 @@
                 </a>
             </div>
             <div class="col-lg-6 col-6 text-left">
-                <form action="">
-                    <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Search for products"/>
-                        <div class="input-group-append">
-                            <span class="input-group-text bg-transparent text-primary">
-                                <i class="fa fa-search"></i>
-                            </span>
-                        </div>
-                    </div>
-                </form>
+                
             </div>
-            <div class="col-lg-3 col-6 text-right">
-                <a href="" class="btn ">
-                    <i class="fas fa-heart text-primary"></i>
-                    <span class="badge">0</span>
-                </a>
-                <a href="" class="btn ">
-                    <i class="fas fa-shopping-cart text-primary"></i>
-                    <span class="badge">0</span>
-                </a>
-            </div>
+           
         </div>
     </div>
     <!-- Topbar End -->
@@ -119,7 +101,7 @@
 <!--                        <a href="" class="nav-item nav-link">#{item.name}</a>-->
                        
  <h:form>
-     <h:commandLink action="#{produitController.viewProduct(item.id)}" value="#{item.name}" style="text-decoration:none;color:grey;">
+     <h:commandLink action="#{produitController.viewProduct(item.id)}" value="#{item.name}" style="text-decoration:none;color:black; line-height: 7vh;">
          <f:param name="category" value="#{item.id}"/>
      </h:commandLink>
                          
@@ -151,12 +133,10 @@
                             <a href="contact.html" class="nav-item nav-link">Contact</a>
                         </div>-->
                         <div class="navbar-nav ml-auto py-0">
-                            <h:form>
-                            <h:commandButton value="login" action="login.xhtml?faces-redirect=true"/>
+                         <h:form>
+                            <h:link style="text-decoration: none; color: #B5E550; line-height: 10vh;" value="login" outcome="logine.xhtml?faces-redirect=true"/>
                            
                             </h:form>
-                            
-                            <a href="" class="nav-item nav-link">Register</a>
                         </div>
                     </div>
                 </nav>
@@ -283,7 +263,7 @@
                         <h:graphicImage class="img-fluid w-100" p:src="#{item.image}" alt=""/>
                     </div>
                     <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
-                        <h6 class="text-truncate mb-3">#{item.name}</h6>
+                        <h6 class="text-truncate mb-3" style="color: #B5E550;">#{item.name}</h6>
                         
                         <p >#{item.description}</p>
                         <div class="d-flex justify-content-center" style="text-decoration:line-through;">
@@ -301,21 +281,20 @@
                     <div class="card-footer d-flex justify-content-between bg-light border">
                         <h:form>
                             
-                              <h:commandButton action="#{produitController.redirprod()}" value="bean" />
+                              <h:commandButton action="#{produitController.redirprod()}" value="Voir Details" style="background-color: white;color: #B5E550;"/>
+                              <a href="#{item.site}" style=" margin-left: 10vh; text-decoration: none; background-color: white; color:black; color: #B5E550;">Visiter</a>
     
                              <!--<h:commandButton  action= > <i class="fas fa-eye text-primary mr-1"></i>View </h:commandButton>-->
                         </h:form>
                          <h:form>
                             
-                             <h:commandButton action="#{commandeController.commander(item)}" value="add" />
+                             <!--<h:commandButton action="#{commandeController.commander(item)}" value="add" />-->
     
                              <!--<h:commandButton  action= > <i class="fas fa-eye text-primary mr-1"></i>View </h:commandButton>-->
                         </h:form>
                       
                         
-                        <a href="#{item.site}" class="btn btn-sm text-dark p-0"><i class="fas fa-globe text-primary mr-1"></i>Visite</a>
-
-                        <a href="" class="btn btn-sm text-dark p-0"><i class="fas fa-shopping-cart text-primary mr-1"></i>Add To Cart</a>
+      
                            
                     </div>
                 </div>

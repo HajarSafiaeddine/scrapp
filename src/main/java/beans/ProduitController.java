@@ -42,6 +42,7 @@ public class ProduitController implements Serializable {
     public List<Produit> getMesproduits() {
         return mesproduits;
     }
+   
     
     
 
@@ -86,6 +87,7 @@ public class ProduitController implements Serializable {
         selectedItemIndex = pagination.getPageFirstItem() + getItems().getRowIndex();
         return "productDetails";
     }
+   
    
   
    

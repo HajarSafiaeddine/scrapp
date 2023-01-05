@@ -34,6 +34,7 @@ public class CategoryController implements Serializable {
    
     public CategoryController() {
     }
+       
 
     public Category getSelected() {
         if (current == null) {

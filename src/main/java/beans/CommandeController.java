@@ -36,6 +36,7 @@ public class CommandeController implements Serializable {
     private DataModel items = null;
     @EJB
     private beans.CommandeFacade ejbFacade;
+    private beans.UtilisateurFacade ejbFacade2;
     
     private PaginationHelper pagination;
     private int selectedItemIndex;
@@ -87,14 +88,34 @@ public class CommandeController implements Serializable {
         return ejbFacade;
     }
  public String commander(Produit currentproduit){
+     
      String timeStamp = new SimpleDateFormat("dd/MM/YYYY").format(new java.util.Date());
        if(current==null){
            current = new Commande();
             current.setProduit(currentproduit);  
-            current.setDate(timeStamp);    
-       }
+            current.setDate(timeStamp);
+            
+            
           
+            
+       }
+       
        return "cart";
+   }
+ public String checkuser(Utilisateur u){
+     
+      
+       if(current==null){
+           
+           current = new Commande();
+              if(u.getRole()=="admin"){
+                  current.setUser(u);
+                  
+              }     
+       }
+       return "cart";
+          
+      
    }
      
     public PaginationHelper getPagination() {

@@ -1,6 +1,5 @@
+com\mycompany\scrapp\resources\JavaEE8Resource.class
 entities\Utilisateur.class
 entities\Category.class
 entities\Commande.class
 entities\Produit.class
-com\mycompany\scrapp\resources\JavaEE8Resource.class
-com\mycompany\scrapp\JAXRSConfiguration.class
